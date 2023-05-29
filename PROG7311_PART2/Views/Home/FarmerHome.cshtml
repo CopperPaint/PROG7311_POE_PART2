@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "FarmerHome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <section class="row" aria-labelledby="HomeTitle">
+        <h1 id="HomeTitle">Home</h1>
+    </section>
+    <div class="row">
+
+        <!--Products-->
+        <section class="col-md-4" aria-labelledby="products">
+            <h2 id="products">Products</h2>
+            <p>View all of your added products. View product details and edit or delete products</p>
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Products")'">Products</button>
+        </section>
+
+        <!--Add Product-->
+        <section class="col-md-4" aria-labelledby="products">
+            <h2 id="products">Add Product</h2>
+            <p>Add a new product to your profile</p>
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "Products")'">Add Product</button>
+        </section>
+
+        <!--Product Types-->
+        <section class="col-md-4" aria-labelledby="types">
+            <h2 id="types">Product Types</h2>
+            <p>View the product types. If you find a type of product missing, please contact a store employee</p>
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "ProductTypes")'">Types</button>
+        </section>
+    </div>
+</main>
+

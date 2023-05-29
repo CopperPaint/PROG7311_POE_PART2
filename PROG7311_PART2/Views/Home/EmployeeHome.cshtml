@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "EmployeeHome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <section class="row" aria-labelledby="HomeTitle">
+        <h1 id="HomeTitle">Home</h1>
+    </section>
+    <div class="row">
+
+        <!--Farmers-->
+        <section class="col-md-4" aria-labelledby="farmers">
+            <h2 id="farmers">Farmers</h2>
+            <p>
+                View and manage the farmer user database. View and edit farmer details and add or remove farmers.
+            </p>
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Farmers")'">Farmers</button>
+        </section>
+
+        <!--Products-->
+        <section class="col-md-4" aria-labelledby="products">
+            <h2 id="products">Products</h2>
+            <p>View the farmer product database. View all products or products of a specific famer.</p>
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Products")'">Products</button>
+        </section>
+
+        <!--Product Types-->
+        <section class="col-md-4" aria-labelledby="types">
+            <h2 id="types">Product Types</h2>
+            <p>View and manage the product types. View all, add new types or delete types</p>
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "ProductTypes")'">Types</button>
+        </section>
+    </div>
+</main>

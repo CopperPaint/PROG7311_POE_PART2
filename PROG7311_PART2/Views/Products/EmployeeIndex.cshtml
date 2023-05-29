@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PROG7311_PART2.Models.EmpProductIndexModel>
+
+@{
+    ViewBag.Title = "EmployeeIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Farmer Products</h2>
+
+<h5>Filtered by: @ViewBag.CurrentFilter</h5>
+<table class="table">
+    @using (Html.BeginForm("EmployeeIndex", "Products", FormMethod.Get))
+    { 
+        <tr>
+            <th>
+                @Html.DropDownList("SelectedFarmer",
+                new SelectList(ViewBag.Farmers, "Value", "Text", "ViewBag.SelectedFarmer"),
+                "All", new { onchange = "form.submit();" })
+            </th>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PName)
+            </th>
+            <th>
+                @Html.ActionLink("Type", "EmployeeIndex", new { SortOrder = ViewBag.Type })
+            </th>
+            <th>
+                @Html.ActionLink("Date Added", "EmployeeIndex", new { SortOrder = ViewBag.DateAdded})
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th></th>
+        </tr>
+    }
+    
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateAdded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.ProductID })
+        </td>
+    </tr>
+}
+
+</table>

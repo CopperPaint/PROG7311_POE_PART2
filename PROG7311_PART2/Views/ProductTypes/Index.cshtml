@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PROG7311_PART2.Models.ProductType>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Product Types</h2>
+
+<p>
+    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "ProductTypes")'">Add New Type</button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PTName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTCategory)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTCategory)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PTypeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PTypeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PTypeID })
+        </td>
+    </tr>
+}
+
+</table>

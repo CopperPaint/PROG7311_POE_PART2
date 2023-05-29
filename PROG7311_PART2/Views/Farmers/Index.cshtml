@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PROG7311_PART2.Models.FarmerViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Farmers</h2>
+
+<p>
+    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "Farmers")'">Add New Farmer</button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Username
+            </td>
+            <td>
+                @item.Email
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.FarmerID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.FarmerID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FarmerID })
+            </td>
+        </tr>
+    }
+
+</table>

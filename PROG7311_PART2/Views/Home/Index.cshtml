@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row" aria-labelledby="title">
+        <h1 id="title">Welcome to Farm Central</h1>
+        <p class="lead">To access the Farm Central stock database, please sign in.</p>
+    </section>
+    <section class="col-md-4">
+        <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Login", "Account")'">Login</button>
+    </section>
+</main>

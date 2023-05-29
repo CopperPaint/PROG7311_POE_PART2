@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PROG7311_PART2.Models.ProductType>
+
+@{
+    ViewBag.Title = "FarmerIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Product Types</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PTName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTCategory)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTCategory)
+        </td>
+    </tr>
+}
+
+</table>
